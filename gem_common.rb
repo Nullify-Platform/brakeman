@@ -18,7 +18,7 @@ module Brakeman
       spec.add_dependency "haml", ">=3.0", "<5.0"
       spec.add_dependency "sass", "~>3.0", "<3.5.0"
       spec.add_dependency "slim", ">=1.3.6", "<3.0.8"
-      spec.add_dependency "rexml", "~>3.0"
+      spec.add_dependency "rexml", "~>3.2.6"
     end
   end
 end
