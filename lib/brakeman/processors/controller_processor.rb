@@ -206,7 +206,7 @@ class Brakeman::ControllerProcessor < Brakeman::BaseProcessor
     end
 
     if node_type? exp.block, :block
-      block_inner = exp.block[1..-1]
+      block_inner = exp.block.sexp_body
     else
       block_inner = [exp.block]
     end
