@@ -40,7 +40,7 @@ class Sexp
       s.line(line)
     else
       s.original_line = self.original_line
-      s.line(self.line)
+      s.line(self.line) if self.line
     end
 
     s
@@ -175,7 +175,7 @@ class Sexp
     start_index = 3
 
     if exp.is_a? Sexp and exp.node_type == :arglist
-      exp = exp[1..-1]
+      exp = exp.sexp_body
     end
 
     exp.each_with_index do |e, i|
@@ -198,10 +198,10 @@ class Sexp
 
     case self.node_type
     when :call, :attrasgn, :safe_call, :safe_attrasgn
-      self[3..-1].unshift :arglist
+      self.sexp_body(3).unshift :arglist
     when :super, :zsuper
       if self[1]
-        self[1..-1].unshift :arglist
+        self.sexp_body.unshift :arglist
       else
         Sexp.new(:arglist)
       end
@@ -218,13 +218,13 @@ class Sexp
     case self.node_type
     when :call, :attrasgn, :safe_call, :safe_attrasgn
       if self[3]
-        self[3..-1]
+        self.sexp_body(3)
       else
         Sexp.new
       end
     when :super, :zsuper
       if self[1]
-        self[1..-1]
+        self.sexp_body
       else
         Sexp.new
       end
@@ -314,7 +314,7 @@ class Sexp
     chain = []
     call = self
 
-    while call.class == Sexp and CALLS.include? call.first 
+    while call.class == Sexp and CALLS.include? call.first
       chain << call.method
       call = call.target
     end
@@ -507,7 +507,7 @@ class Sexp
     self.slice!(index..-1) #Remove old body
 
     if exp.first == :rlist
-      exp = exp[1..-1]
+      exp = exp.sexp_body
     end
 
     #Insert new body

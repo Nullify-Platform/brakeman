@@ -286,7 +286,7 @@ module Brakeman::Util
       if node_type? current, :class
         return true
       elsif sexp? current
-        todo = current[1..-1].concat todo
+        todo = current.sexp_body.concat todo
       end
     end
 
@@ -299,7 +299,7 @@ module Brakeman::Util
     if args.empty? or args.first.empty?
       #nothing to do
     elsif node_type? args.first, :arglist
-      call.concat args.first[1..-1]
+      call.concat args.first.sexp_body
     elsif args.first.node_type.is_a? Sexp #just a list of args
       call.concat args.first
     else
