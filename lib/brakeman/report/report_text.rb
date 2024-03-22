@@ -19,7 +19,7 @@ class Brakeman::Report::Text < Brakeman::Report::Base
     add_chunk generate_controllers if tracker.options[:debug] or tracker.options[:report_routes]
     add_chunk generate_templates if tracker.options[:debug]
     add_chunk generate_obsolete
-    add_chunk generate_errors 
+    add_chunk generate_errors
     add_chunk generate_warnings
   end
 
@@ -35,7 +35,7 @@ class Brakeman::Report::Text < Brakeman::Report::Base
 
   def generate_header
     [
-      header("Brakeman Report"), 
+      header("Brakeman Report"),
       label("Application Path", tracker.app_path),
       label("Rails Version", rails_version),
       label("Brakeman Version", Brakeman::Version),
@@ -133,6 +133,7 @@ class Brakeman::Report::Text < Brakeman::Report::Base
       label('Confidence', confidence(w.confidence)),
       label('Category', w.warning_type.to_s),
       label('Check', w.check.gsub(/^Brakeman::Check/, '')),
+      label('CWE', w.cwe),
       label('Message', w.message)
     ]
 
@@ -195,4 +196,3 @@ class Brakeman::Report::Text < Brakeman::Report::Base
     double_space "Controller Overview", controllers
   end
 end
-

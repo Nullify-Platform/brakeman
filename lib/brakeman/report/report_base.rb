@@ -89,7 +89,7 @@ class Brakeman::Report::Base
     render_warnings generic_warnings,
                     :warning,
                     'security_warnings',
-                    ["Confidence", "Class", "Method", "Warning Type", "Message"],
+                    ["Confidence", "Class", "Method", "Warning Type", "CWE", "Message"],
                     'Class'
   end
 
@@ -98,7 +98,7 @@ class Brakeman::Report::Base
     render_warnings template_warnings,
                     :template,
                     'view_warnings',
-                    ['Confidence', 'Template', 'Warning Type', 'Message'],
+                    ['Confidence', 'Template', 'Warning Type', "CWE", 'Message'],
                     'Template'
 
   end
@@ -108,7 +108,7 @@ class Brakeman::Report::Base
     render_warnings model_warnings,
                     :model,
                     'model_warnings',
-                    ['Confidence', 'Model', 'Warning Type', 'Message'],
+                    ['Confidence', 'Model', 'Warning Type', "CWE", 'Message'],
                     'Model'
   end
 
@@ -117,7 +117,7 @@ class Brakeman::Report::Base
     render_warnings controller_warnings,
                     :controller,
                     'controller_warnings',
-                    ['Confidence', 'Controller', 'Warning Type', 'Message'],
+                    ['Confidence', 'Controller', 'Warning Type', "CWE", 'Message'],
                     'Controller'
   end
 
@@ -125,7 +125,7 @@ class Brakeman::Report::Base
     render_warnings ignored_warnings,
                     :ignored,
                     'ignored_warnings',
-                    ['Confidence', 'Warning Type', 'File', 'Message'],
+                    ['Confidence', 'Warning Type', 'File', "CWE", 'Message'],
                     'Warning Type'
   end
 

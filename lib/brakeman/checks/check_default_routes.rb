@@ -22,7 +22,7 @@ class Brakeman::CheckDefaultRoutes < Brakeman::BaseCheck
         :message => "All public methods in controllers are available as actions in routes.rb",
         :line => tracker.routes[:allow_all_actions].line,
         :confidence => :high,
-        :file => "#{tracker.app_path}/config/routes.rb"
+        :file => "#{tracker.app_path}/config/routes.rb",
         :cwe => 22
     end
   end
@@ -45,7 +45,7 @@ class Brakeman::CheckDefaultRoutes < Brakeman::BaseCheck
           :message => "Any public method in #{name} can be used as an action for #{verb} requests.",
           :line => actions[2],
           :confidence => :medium,
-          :file => "#{tracker.app_path}/config/routes.rb"
+          :file => "#{tracker.app_path}/config/routes.rb",
           :cwe => 22
       end
     end
@@ -78,7 +78,7 @@ class Brakeman::CheckDefaultRoutes < Brakeman::BaseCheck
       :warning_code => :CVE_2014_0130,
       :message => "Rails #{rails_version} with globbing routes is vulnerable to directory traversal and remote code execution. Patch or upgrade to #{upgrade}",
       :confidence => confidence,
-      :file => "#{tracker.app_path}/config/routes.rb"
+      :file => "#{tracker.app_path}/config/routes.rb",
       :cwe => 22,
       :link => "http://matasano.com/research/AnatomyOfRailsVuln-CVE-2014-0130.pdf"
   end

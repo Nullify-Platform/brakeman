@@ -30,7 +30,7 @@ class Brakeman::Warning
     :class => :@class,
     :code => :@code,
     :controller => :@controller,
-    :cwe => :@cwe
+    :cwe => :@cwe,
     :file => :@file,
     :gem_info => :@gem_info,
     :line => :@line,
