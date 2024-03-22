@@ -106,7 +106,8 @@ class Brakeman::CheckContentTag < Brakeman::CheckCrossSiteScripting
         :message => message,
         :user_input => input,
         :confidence => :high,
-        :link_path => "content_tag"
+        :link_path => "content_tag",
+        :cwe => 79
 
     elsif not tracker.options[:ignore_model_output] and match = has_immediate_model?(arg)
       unless IGNORE_MODEL_METHODS.include? match.method
@@ -124,7 +125,8 @@ class Brakeman::CheckContentTag < Brakeman::CheckCrossSiteScripting
           :message => "Unescaped model attribute in content_tag",
           :user_input => match,
           :confidence => confidence,
-          :link_path => "content_tag"
+          :link_path => "content_tag",
+          :cwe => 79
       end
 
     elsif @matched
@@ -140,7 +142,8 @@ class Brakeman::CheckContentTag < Brakeman::CheckCrossSiteScripting
         :message => message,
         :user_input => @matched,
         :confidence => :medium,
-        :link_path => "content_tag"
+        :link_path => "content_tag",
+        :cwe => 79
     end
   end
 

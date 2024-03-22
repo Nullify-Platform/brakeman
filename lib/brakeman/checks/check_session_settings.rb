@@ -17,7 +17,7 @@ class Brakeman::CheckSessionSettings < Brakeman::BaseCheck
   end
 
   def run_check
-    settings = tracker.config.session_settings 
+    settings = tracker.config.session_settings
 
     check_for_issues settings, @app_tree.expand_path("config/environment.rb")
 
@@ -139,7 +139,8 @@ class Brakeman::CheckSessionSettings < Brakeman::BaseCheck
       :message => "Session cookies should be set to HTTP only",
       :confidence => :high,
       :line => line,
-      :file => file
+      :file => file,
+      :cwe => 1004
 
   end
 
@@ -149,7 +150,8 @@ class Brakeman::CheckSessionSettings < Brakeman::BaseCheck
       :message => "Session secret should not be included in version control",
       :confidence => :high,
       :line => line,
-      :file => file
+      :file => file,
+      :cwe => 798
   end
 
   def warn_about_secure_only line, file
@@ -158,7 +160,8 @@ class Brakeman::CheckSessionSettings < Brakeman::BaseCheck
       :message => "Session cookie should be set to secure only",
       :confidence => :high,
       :line => line,
-      :file => file
+      :file => file,
+      :cwe => 614
   end
 
   def ignored? file

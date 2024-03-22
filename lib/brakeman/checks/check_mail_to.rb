@@ -25,7 +25,8 @@ class Brakeman::CheckMailTo < Brakeman::BaseCheck
         :message => message,
         :confidence => :high,
         :gem_info => gemfile_or_environment,
-        :link_path => "https://groups.google.com/d/topic/rubyonrails-security/8CpI7egxX4E/discussion"
+        :link_path => "https://groups.google.com/d/topic/rubyonrails-security/8CpI7egxX4E/discussion",
+        :cwe => 79
     end
   end
 

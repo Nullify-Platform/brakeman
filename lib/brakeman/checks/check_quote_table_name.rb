@@ -8,7 +8,7 @@ class Brakeman::CheckQuoteTableName < Brakeman::BaseCheck
   @description = "Checks for quote_table_name vulnerability in versions before 2.3.14 and 3.0.10"
 
   def run_check
-    if (version_between?('2.0.0', '2.3.13') or 
+    if (version_between?('2.0.0', '2.3.13') or
         version_between?('3.0.0', '3.0.9'))
 
       if uses_quote_table_name?
@@ -28,7 +28,8 @@ class Brakeman::CheckQuoteTableName < Brakeman::BaseCheck
         :message => message,
         :confidence => confidence,
         :gem_info => gemfile_or_environment,
-        :link_path => "https://groups.google.com/d/topic/rubyonrails-security/ah5HN0S8OJs/discussion"
+        :link_path => "https://groups.google.com/d/topic/rubyonrails-security/ah5HN0S8OJs/discussion",
+        :cwe => 89
     end
   end
 

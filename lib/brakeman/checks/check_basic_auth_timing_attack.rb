@@ -27,7 +27,8 @@ class Brakeman::CheckBasicAuthTimingAttack < Brakeman::BaseCheck
         :warning_code => :CVE_2015_7576,
         :message => "Basic authentication in Rails #{rails_version} is vulnerable to timing attacks. Upgrade to #@upgrade",
         :confidence => :high,
-        :link => "https://groups.google.com/d/msg/rubyonrails-security/ANv0HDHEC3k/mt7wNGxbFQAJ"
+        :link => "https://groups.google.com/d/msg/rubyonrails-security/ANv0HDHEC3k/mt7wNGxbFQAJ",
+        :cwe => [1254]
     end
   end
 end

@@ -31,7 +31,8 @@ class Brakeman::CheckModelAttributes < Brakeman::BaseCheck
           :warning_type => "Attribute Restriction",
           :warning_code => :no_attr_accessible,
           :message => "Mass assignment is not restricted using attr_accessible",
-          :confidence => :high
+          :confidence => :high,
+          :cwe => 915
       end
 
       unless protected_names.empty?
@@ -48,7 +49,8 @@ class Brakeman::CheckModelAttributes < Brakeman::BaseCheck
           :warning_code => warning_code,
           :message => message,
           :confidence => confidence,
-          :link => link
+          :link => link,
+          :cwe => 915
       end
     else #Output one warning per model
 
