@@ -29,7 +29,8 @@ class Brakeman::CheckSessionManipulation < Brakeman::BaseCheck
         :message => "#{friendly_type_of(input).capitalize} used as key in session hash",
         :code => result[:call],
         :user_input => input,
-        :confidence => confidence
+        :confidence => confidence,
+        :cwe => 20
     end
   end
 end

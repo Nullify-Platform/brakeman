@@ -53,7 +53,8 @@ class Brakeman::CheckLinkToHref < Brakeman::CheckLinkTo
           :message => message,
           :user_input => input,
           :confidence => :high,
-          :link_path => "link_to_href"
+          :link_path => "link_to_href",
+          :cwe => 79
       end
     elsif not tracker.options[:ignore_model_output] and input = has_immediate_model?(url_arg)
       return if ignore_model_call? url_arg, input or duplicate? result
@@ -67,7 +68,8 @@ class Brakeman::CheckLinkToHref < Brakeman::CheckLinkTo
         :message => message,
         :user_input => input,
         :confidence => :weak,
-        :link_path => "link_to_href"
+        :link_path => "link_to_href",
+        :cwe => 79
     end
   end
 

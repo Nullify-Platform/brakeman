@@ -50,7 +50,8 @@ class Brakeman::CheckDeserialize < Brakeman::BaseCheck
         :message => message,
         :user_input => input,
         :confidence => confidence,
-        :link_path => "unsafe_deserialization"
+        :link_path => "unsafe_deserialization",
+        :cwe => 502
     end
   end
 end

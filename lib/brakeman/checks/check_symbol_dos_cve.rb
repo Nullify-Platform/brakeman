@@ -23,8 +23,8 @@ class Brakeman::CheckSymbolDoSCVE < Brakeman::BaseCheck
         :message => "Rails #{rails_version} has a denial of service vulnerability in ActiveRecord: upgrade to #{fix_version} or patch",
         :confidence => :medium,
         :gem_info => gemfile_or_environment,
-        :link => "https://groups.google.com/d/msg/rubyonrails-security/jgJ4cjjS8FE/BGbHRxnDRTIJ"
+        :link => "https://groups.google.com/d/msg/rubyonrails-security/jgJ4cjjS8FE/BGbHRxnDRTIJ",
+        :cwe => 20
     end
   end
 end
-

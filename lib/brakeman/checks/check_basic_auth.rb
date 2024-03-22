@@ -31,7 +31,8 @@ class Brakeman::CheckBasicAuth < Brakeman::BaseCheck
               :message => "Basic authentication password stored in source code",
               :code => call,
               :confidence => :high,
-              :file => controller.file
+              :file => controller.file,
+              :cwe => [259]
           break
         end
       end

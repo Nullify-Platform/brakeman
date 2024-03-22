@@ -100,7 +100,8 @@ class Brakeman::CheckMassAssignment < Brakeman::BaseCheck
         :message => "Unprotected mass assignment",
         :code => call,
         :user_input => input,
-        :confidence => confidence
+        :confidence => confidence,
+        :cwe => 915
     end
 
     res
@@ -191,6 +192,7 @@ class Brakeman::CheckMassAssignment < Brakeman::BaseCheck
       :warning_type => "Mass Assignment",
       :warning_code => :mass_assign_permit!,
       :message => "Parameters should be whitelisted for mass assignment",
-      :confidence => confidence
+      :confidence => confidence,
+      :cwe => 915
   end
 end

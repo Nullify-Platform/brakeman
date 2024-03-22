@@ -34,7 +34,8 @@ class Brakeman::CheckSingleQuotes < Brakeman::BaseCheck
       :message => message,
       :confidence => :medium,
       :gem_info => gemfile_or_environment,
-      :link_path => "https://groups.google.com/d/topic/rubyonrails-security/kKGNeMrnmiY/discussion"
+      :link_path => "https://groups.google.com/d/topic/rubyonrails-security/kKGNeMrnmiY/discussion",
+      :cwe => 79
   end
 
   #Process initializers to see if they use workaround

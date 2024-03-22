@@ -20,7 +20,7 @@ class Brakeman::CheckUnsafeReflection < Brakeman::BaseCheck
   def check_unsafe_reflection result
     return unless original? result
 
-    call = result[:call] 
+    call = result[:call]
     method = call.method
 
     case method
@@ -44,7 +44,8 @@ class Brakeman::CheckUnsafeReflection < Brakeman::BaseCheck
         :warning_code => :unsafe_constantize,
         :message => message,
         :user_input => input,
-        :confidence => confidence
+        :confidence => confidence,
+        :cwe => 470
     end
   end
 end

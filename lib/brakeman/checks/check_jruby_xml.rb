@@ -31,6 +31,7 @@ class Brakeman::CheckJRubyXML < Brakeman::BaseCheck
       :message => "Rails #{rails_version} with JRuby has a vulnerability in XML parser: upgrade to #{fix_version} or patch",
       :confidence => :high,
       :gem_info => gemfile_or_environment,
-      :link => "https://groups.google.com/d/msg/rubyonrails-security/KZwsQbYsOiI/5kUV7dSCJGwJ"
+      :link => "https://groups.google.com/d/msg/rubyonrails-security/KZwsQbYsOiI/5kUV7dSCJGwJ",
+      :cwe => 20
   end
 end

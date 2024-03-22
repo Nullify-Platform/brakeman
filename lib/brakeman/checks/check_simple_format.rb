@@ -23,7 +23,8 @@ class Brakeman::CheckSimpleFormat < Brakeman::CheckCrossSiteScripting
       :message => message,
       :confidence => :medium,
       :gem_info => gemfile_or_environment,
-      :link_path => "https://groups.google.com/d/msg/ruby-security-ann/5ZI1-H5OoIM/ZNq4FoR2GnIJ"
+      :link_path => "https://groups.google.com/d/msg/ruby-security-ann/5ZI1-H5OoIM/ZNq4FoR2GnIJ",
+      :cwe => 79
   end
 
   def check_simple_format_usage
@@ -53,6 +54,7 @@ class Brakeman::CheckSimpleFormat < Brakeman::CheckCrossSiteScripting
       :message => "Values passed to simple_format are not safe in Rails #{rails_version}",
       :confidence => :high,
       :link_path => "https://groups.google.com/d/msg/ruby-security-ann/5ZI1-H5OoIM/ZNq4FoR2GnIJ",
-      :user_input => match
+      :user_input => match,
+      :cwe => 79
   end
 end

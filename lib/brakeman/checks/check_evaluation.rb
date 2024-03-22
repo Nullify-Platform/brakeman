@@ -29,7 +29,8 @@ class Brakeman::CheckEvaluation < Brakeman::BaseCheck
         :message => "User input in eval",
         :code => result[:call],
         :user_input => input,
-        :confidence => :high
+        :confidence => :high,
+        :cwe => 95
     end
   end
 end

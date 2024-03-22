@@ -77,7 +77,8 @@ class Brakeman::CheckCrossSiteScripting < Brakeman::BaseCheck
         :warning_code => :cross_site_scripting,
         :message => message,
         :code => input.match,
-        :confidence => :high
+        :confidence => :high,
+        :cwe => 79
 
     elsif not tracker.options[:ignore_model_output] and match = has_immediate_model?(out)
       method = if call? match
@@ -111,7 +112,8 @@ class Brakeman::CheckCrossSiteScripting < Brakeman::BaseCheck
           :message => message,
           :code => match,
           :confidence => confidence,
-          :link_path => link_path
+          :link_path => link_path,
+          :cwe => 79
       end
 
     else
@@ -195,7 +197,8 @@ class Brakeman::CheckCrossSiteScripting < Brakeman::BaseCheck
             :code => exp,
             :user_input => @matched,
             :confidence => confidence,
-            :link_path => link_path
+            :link_path => link_path,
+            :cwe => 79
         end
       end
 

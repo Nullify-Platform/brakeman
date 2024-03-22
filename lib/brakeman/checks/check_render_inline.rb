@@ -28,14 +28,16 @@ class Brakeman::CheckRenderInline < Brakeman::CheckCrossSiteScripting
             :warning_code => :cross_site_scripting_inline,
             :message => "Unescaped #{friendly_type_of input} rendered inline",
             :user_input => input,
-            :confidence => :high
+            :confidence => :high,
+            :cwe => 79
         elsif input = has_immediate_model?(render_value)
           warn :result => result,
             :warning_type => "Cross-Site Scripting",
             :warning_code => :cross_site_scripting_inline,
             :message => "Unescaped model attribute rendered inline",
             :user_input => input,
-            :confidence => :medium
+            :confidence => :medium,
+            :cwe => 79
         end
       end
     end
