@@ -1,15 +1,4 @@
 #Contains a couple shared methods for Processors.
-
-class Sexp
-  def each_sexp e
-    self.each do |e|
-      if e.is_a? Sexp
-        yield e
-      end
-    end
-  end
-end
-
 module Brakeman::ProcessorHelper
   def process_all exp
     exp.each_sexp do |e|
