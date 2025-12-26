@@ -1,4 +1,4 @@
-FROM ruby:3.4-alpine
+FROM ruby:4.0-alpine
 MAINTAINER Justin Collins
 
 WORKDIR /usr/src/app
